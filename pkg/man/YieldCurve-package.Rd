@@ -42,9 +42,7 @@ Svensson, L.E. (1994), Estimating and Interpreting Forward Interest Rates: Swede
 \keyword{models}
 \keyword{htest}
 
-\seealso{
-\code{\link[<fBonds>:<fBonds>-package]{<fBonds>}} 
-}
+
 \examples{
 data(FedYieldCurve)
 tau <- c(3, 6, 12, 60, 84, 120)

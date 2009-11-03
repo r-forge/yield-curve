@@ -8,15 +8,15 @@ Modelling and estimation of the yield curve
 \description{
 Modelling the yield curve with some parametric models. 
 The models implemented are: Nelson-Siegel, Diebold-Li and Svensson. 
-The package also includes the data of the term structure of interest rate of Federal Reserve 
+The package also includes the data of the term structure of interest rate of Federal Reserve Bank
 and European Central Bank.
 }
 \details{
 \tabular{ll}{
 Package: \tab YieldCurve\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2009-07-21\cr
+Version: \tab 2.0\cr
+Date: \tab 2009-11-03\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }

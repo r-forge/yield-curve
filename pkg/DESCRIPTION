@@ -1,10 +1,10 @@
 Package: YieldCurve
 Type: Package
 Title: Modelling and estimation of the yield curve
-Version: 2.0
-Date: 2009-11-03
+Version: 3.0
+Date: 2010-07-19
 Author: Sergio Salvino Guirreri
-Maintainer: Sergio Salvino Guirreri <sergioguirreri@gmail.com> <guirreri@dssm.unipa.it> 
+Maintainer: Sergio Salvino Guirreri <sergioguirreri@gmail.com> 
 Description: Modelling the yield curve with some parametric models. 
 	The models implemented are: Nelson-Siegel, Diebold-Li and Svensson. 
 	The package also includes the data of the term structure of interest rate of Federal Reserve Bank
@@ -12,4 +12,4 @@ Description: Modelling the yield curve with some parametric models.
 License: GPL (>= 2)
 LazyLoad: yes
 URL: http://www.guirreri.host22.com
-
+Packaged: 2010-07-19 12:54:48 UTC; Utente

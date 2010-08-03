@@ -15,8 +15,8 @@ and European Central Bank.
 \tabular{ll}{
 Package: \tab YieldCurve\cr
 Type: \tab Package\cr
-Version: \tab 3.1\cr
-Date: \tab 2010-07-19\cr
+Version: \tab 2.0\cr
+Date: \tab 2009-11-03\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }
@@ -25,7 +25,8 @@ DieboldLi
 \author{
 Sergio Salvino Guirreri
 
-Maintainer: Sergio Salvino Guirreri <sergioguirreri@gmail.com> 
+Maintainer: Sergio Salvino Guirreri <sergioguirreri@gmail.com> <guirreri@dssm.unipa.it>
+
 }
 \references{
 Diebold, F.X. and Li, C. (2006), Forecasting the Term Structure of Government Bond Yields, \emph{Journal of Econometrics}, \bold{130}, 337-364. 

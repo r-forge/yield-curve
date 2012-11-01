@@ -3,12 +3,9 @@ function( rate, maturity, Tau1 = c(3,12), Tau2 = c(60,120))
   {
 
     rate <- try.xts(rate, error=as.matrix)
-
+    if(ncol(rate)==1) rate<-matrix(as.vector(rate),1,nrow(rate))
     Tau1Values <- c( Tau1, mean(c(Tau1[1],Tau1[2])) )
     Tau2Values <- c( Tau2, mean(c(Tau2[1],Tau2[2])) )
-    
-    #if(is.data.frame(rate)) rate <- data.matrix(rate)
-    #if(is.vector(rate)) rate <- matrix(rate, 1, length(maturity))
     
     FinalResults <- matrix(0, nrow(rate), 6)
     FinalResultsTau2 <- matrix(0, length(Tau1Values), 7)   

@@ -2,7 +2,7 @@
 function( rate, maturity, MidTau)
   {
     rate <- try.xts(rate,error=as.matrix)
-    
+    if(ncol(rate)==1) rate<-matrix(as.vector(rate),1,nrow(rate))
     a1 <- mean(c(MidTau[1],MidTau[2]))
     a2 <- mean(c(MidTau[1],MidTau[3]))
     a3 <- mean(c(MidTau[2],MidTau[3]))

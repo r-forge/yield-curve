@@ -1,20 +1,22 @@
 `Srates`<- function( Coeff, maturity, whichRate="Forward" )
   {
     Coeff <- try.xts( Coeff, error=as.matrix )
+    if(ncol(Coeff)==1) Coeff<-matrix(as.vector(Coeff),1,nrow(Coeff))
     Curve <- matrix( 0, nrow(Coeff), length(maturity) )
     colnames(Curve) <- make.names(maturity)
 
     switch(whichRate,
       Forward =
       {
-        colnames(CurveForward) <- maturity
+        CurveForward <- Curve
         for(i in 1:nrow(Coeff))
           {
-            Curve[i,] <- Coeff[i,1] +
+            CurveForward[i,] <- Coeff[i,1]+
               Coeff[i,2] * .beta1Forward( maturity, Coeff[i,5] ) +
               Coeff[i,3] * .beta2Forward( maturity, Coeff[i,5] ) +
               Coeff[i,4] * .beta2Forward( maturity, Coeff[i,6] )
           }
+          FinalCurve<-CurveForward
       },
       Spot =
       {
@@ -25,6 +27,7 @@
               Coeff[i,3] * .beta2Spot( maturity, Coeff[i,5] ) +
               Coeff[i,4] * .beta2Spot( maturity, Coeff[i,6] )
           }
+          FinalCurve <- Curve
       })
-    reclass( Curve, Coeff )
+    reclass( FinalCurve, Coeff )
   }

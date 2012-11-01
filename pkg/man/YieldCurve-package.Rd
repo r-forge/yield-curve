@@ -25,7 +25,7 @@ DieboldLi
 \author{
 Sergio Salvino Guirreri
 
-Maintainer: Sergio Salvino Guirreri <sergioguirreri@gmail.com> <guirreri@dssm.unipa.it>
+Maintainer: Sergio Salvino Guirreri <sergioguirreri@gmail.com>
 
 }
 \references{
@@ -49,8 +49,7 @@ tau <- c(3, 6, 12, 60, 84, 120)
 mediumTerm <- c(12,60,84)
 NSParameters <- Nelson.Siegel( rate=FedYieldCurve[1:10,], 
 			maturity=tau, MidTau=mediumTerm )
-y <- NSrates(NSParameters[5,1:3],
-	NSParameters$lambda[5],tau)
+y <- NSrates(NSParameters[5,],tau)
 plot(tau,FedYieldCurve[5,],main="Fitting Nelson-Siegel yield curve", type="o")
 lines(tau,y, col=2)
 legend("topleft",legend=c("observed yield curve","fitted yield curve"),

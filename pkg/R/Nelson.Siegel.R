@@ -1,15 +1,10 @@
 `Nelson.Siegel` <-
-function( rate, maturity, MidTau)
+function( rate, maturity )
   {
     rate <- try.xts(rate,error=as.matrix)
     if(ncol(rate)==1) rate<-matrix(as.vector(rate),1,nrow(rate))
-    a1 <- mean(c(MidTau[1],MidTau[2]))
-    a2 <- mean(c(MidTau[1],MidTau[3]))
-    a3 <- mean(c(MidTau[2],MidTau[3]))
-
-    lambdaValues <- c( MidTau,a1, a2, a3)
-    #if(is.vector(rate)) rate <- matrix(rate, 1, length(maturity))
-    #if(is.data.frame(rate)) rate <- data.matrix(rate)
+    pillars.number <- length(maturity)
+    lambdaValues <- seq(maturity[1], maturity[ pillars.number ], by=0.5)
 
     FinalResults <- matrix(0, nrow(rate), 4)
     colnames( FinalResults ) <- c("beta_0","beta_1","beta_2","lambda")
@@ -22,7 +17,7 @@ function( rate, maturity, MidTau)
           {
             lambdaTemp <- optimize(.factorBeta2,interval=c(0.001,1),
               maturity=lambdaValues[i],maximum=TRUE)$maximum
-            InterEstimation <- .NS.estimator(rate[j,], maturity, lambdaTemp)
+            InterEstimation <- .NS.estimator(as.numeric(rate[j,]), maturity, lambdaTemp)
             BetaCoef <- InterEstimation$Par
 	    if( BetaCoef[1]>0 & BetaCoef[1]<20)
               {

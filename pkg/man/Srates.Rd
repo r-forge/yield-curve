@@ -28,12 +28,15 @@ Nelson, C.R., and A.F. Siegel (1987), Parsimonious Modeling of Yield Curve, \emp
 
 \examples{
 data(ECBYieldCurve)
-tauECB <- c(0.25,0.5,1:30)
-Y <- Svensson(ECBYieldCurve[1:10,], tauECB, c(1,4), c(5,8) )
-B <- Srates(Y, tauECB, whichRate="Spot")
-plot(tauECB,ECBYieldCurve[10,],main="Fitting Svensson's yield curve", type="o")
-lines(tauECB,B[10,], col=2)
-legend("topleft",legend=c("observed yield curve","fitted yield curve"),col=c(1,2),lty=1)
+rate.ECB = ECBYieldCurve[1:5,]
+maturity.ECB = c(0.25,0.5,seq(1,30,by=1))
+SvenssonParameters <- Svensson(rate.ECB, maturity.ECB)
+Svensson.rate <- Srates( SvenssonParameters ,maturity.ECB,"Spot")
+
+plot(maturity.ECB, rate.ECB[5,],main="Fitting Svensson yield curve", type="o")
+lines(maturity.ECB, Svensson.rate[5,], col=2)
+legend("topleft",legend=c("observed yield curve","fitted yield curve"),
+col=c(1,2),lty=1)
 grid()
 }
 

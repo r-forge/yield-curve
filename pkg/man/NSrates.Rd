@@ -29,14 +29,11 @@ Nelson, C.R., and A.F. Siegel (1987), Parsimonious Modeling of Yield Curve, \emp
 
 \examples{ 
 data(FedYieldCurve)
-tau <- c(3, 6, 12, 60, 84, 120)
-mediumTerm <- c(12,60,84)
-NSParameters <- Nelson.Siegel( rate=FedYieldCurve[1:10,],
-			maturity=tau, MidTau=mediumTerm )
-Coeff <- NSParameters[10,]
-y <- NSrates( Coeff, tau)
-plot(tau,FedYieldCurve[10,],main="Fitting Nelson-Siegel yield curve", type="o")
-lines(tau,y, col=2)
+maturity.Fed <- c(3, 6, 12, 60, 84, 120)
+NSParameters <- Nelson.Siegel( rate=FedYieldCurve[1:10,], maturity=maturity.Fed )
+y <- NSrates(NSParameters[5,],maturity.Fed)
+plot(maturity.Fed,FedYieldCurve[10,],main="Fitting Nelson-Siegel yield curve", type="o")
+lines(maturity.Fed,y, col=2)
 legend("topleft",legend=c("observed yield curve","fitted yield curve"),
 col=c(1,2),lty=1)
 grid()

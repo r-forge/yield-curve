@@ -1,8 +1,8 @@
 Package: YieldCurve
 Type: Package
 Title: Modelling and estimation of the yield curve
-Version: 3.2
-Date: 2012-11-01
+Version: 4.0
+Date: 2012-11-03
 Depends: xts
 Author: Sergio Salvino Guirreri
 Maintainer: Sergio Salvino Guirreri <sergioguirreri@gmail.com> 

@@ -23,7 +23,7 @@ function( rate, maturity )
             for( a in 1:length(Tau2Values))
               {
                 Tau2Temp <- optimize(.beta2Spot,interval=c(0.001,maturity[pillars.number]),maturity=Tau2Values[a],maximum=TRUE)$maximum
-                InterEstimation <- .NSS.estimator(as.numric(rate[j,]), maturity, Tau1Temp, Tau2Temp)
+                InterEstimation <- .NSS.estimator(as.numeric(rate[j,]), maturity, Tau1Temp, Tau2Temp)
                 BetaCoef <- InterEstimation$Par
                 SSR <- sum(InterEstimation$Res^2)
                 InterResultsTau2[a,] <- c(BetaCoef, Tau1Temp, Tau2Temp, SSR)
